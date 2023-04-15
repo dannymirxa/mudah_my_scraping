@@ -51,7 +51,7 @@ def parse_properties(html):
 
 def create_result():
     res_result = []
-    for page_number in range (1,5):
+    for page_number in range (1,10):
         html = get_html(page_number)
         res = parse_properties(html)
         res_result.extend(res)
