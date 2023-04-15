@@ -33,7 +33,7 @@ def parse_properties(html):
         except AttributeError:
             pass
         try:
-            bedroom = catalogue.find("div", {"title" : "Bathrooms"}).div.string
+            bathroom = catalogue.find("div", {"title" : "Bathrooms"}).div.string
         except AttributeError:
             pass
 
