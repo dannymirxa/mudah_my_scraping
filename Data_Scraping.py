@@ -5,6 +5,7 @@ import httpx
 from dataclasses import dataclass
 from bs4 import BeautifulSoup as bs
 import polars as pl
+import os
 
 @dataclass
 class Property:
@@ -50,14 +51,12 @@ def parse_properties(html):
 
 def create_result():
     res_result = []
-    for page_number in range (1,50):
+    for page_number in range (1,5):
         html = get_html(page_number)
-        #print(html.css_first("title").text())
         res = parse_properties(html)
         res_result.extend(res)
-    #return res_result
     df = pl.DataFrame(res_result)
-    df.write_csv('/mnt/d/Master Data Science/Principles of Data Science/new_result.csv')
+    df.write_csv(os.getcwd() + '/new_result.csv')
     
 def main():
     create_result()
